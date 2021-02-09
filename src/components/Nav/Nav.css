@@ -18,7 +18,7 @@
     height: 50px;
     margin: 0 0 0 25px;
 
-    color: white;
+    color: var(--text-color);
     font-weight: normal;
 }
 
@@ -27,8 +27,8 @@
     color: inherit;
 }
 
-/** Profile Menu Container **/
-#nav-right-group {
+/** Nav Right Group Container **/
+#nav-right-group-container {
     display: flex;
     position: absolute;
     top: 0;
@@ -38,10 +38,11 @@
     width: 200px;
 }
 
+/** Login and Register Links **/
 #login-link, #register-link {
     flex: 1;
 
-    color: white;
+    color: var(--text-color);
     font-size: 18px;
     text-align: center;
     line-height: 50px;
@@ -52,27 +53,6 @@
     margin: 0 5px 0 0;
 }
 
-#profile-menu-button {
-    flex: 1;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    line-height: 50px;
-}
-
-#profile-menu-button .icon {
-    padding-left: 10px;
-    
-    vertical-align: middle;
-    font-size: 12px;
-    color: rgba(255 255, 255, 0.1);
-}
-
-#login-link:hover, #register-link:hover, #profile-menu-button:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+#login-link:hover, #register-link:hover {
+    background-color: var(--soft-highlight-color);
 }

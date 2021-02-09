@@ -62,7 +62,7 @@
     padding: 15px 0;
     margin: 0;
 
-    color: white;
+    color: var(--text-color);
     font-size: 26px;
     text-align: center;
 }
@@ -76,8 +76,8 @@
 #conversation-buttons-container button {
     flex: 1;
     height: 35px;
-    background-color: rgba(0, 0, 0, 0.25);
-    border: none;
+    background-color: transparent;
+    border: 3px solid var(--primary-main-color);
     outline: none;
     cursor: pointer;
 
@@ -85,12 +85,8 @@
     font-size: 18px;
 }
 
-#conversation-buttons-container button:hover {
-    background-color: rgba(0, 0, 0, 0.375);
-}
-
 #conversation-buttons-container .active {
-    background-color: rgba(0, 0, 0, 0.375);
+    background-color: var(--primary-main-color);
 }
 
 /** Conversation Listings **/
@@ -114,7 +110,7 @@
 }
 
 .conversation-listing:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--soft-highlight-color);
 }
 
 .conversation-listing .icon {
@@ -122,7 +118,7 @@
     margin: 0;
     padding: 0 5px 0 0;
 
-    color: white;
+    color: var(--text-color);
     font-size: 10px;
     line-height: 50px;
 }
@@ -160,7 +156,7 @@
     outline: none;
     cursor: pointer;
 
-    color: var(--secondary-main-color);
+    color: var(--text-color);
     font-size: 21px;
     line-height: 50px;
 
@@ -170,5 +166,4 @@
 #sidebar-toggler:hover {
     width: 125px;
 
-    color: white;
 }
