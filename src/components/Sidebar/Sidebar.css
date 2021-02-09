@@ -1,0 +1,174 @@
+/** Sidebar Containers **/
+#outer-sidebar-container, #closed-outer-sidebar-container {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    transition: width 0.5s;
+}
+
+#outer-sidebar-container {
+    width: 250px;
+}
+
+#closed-outer-sidebar-container {
+    width: 50px;
+}
+
+
+
+#sidebar-container {
+    position: absolute;
+    top: 0;
+    bottom: 50px;
+
+    background-color: var(--secondary-main-color);
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+#sidebar-container *, #closed-sidebar-container * {
+    transition: opacity 0.5s;
+}
+
+#sidebar-container {
+    width: 100%;
+}
+
+#sidebar-container * {
+    opacity: 1;
+}
+
+#closed-outer-sidebar-container #sidebar-container * {
+    opacity: 0;
+}
+
+
+
+#sidebar-toggler-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 50px;
+    background-color: var(--secondary-main-color);
+}
+
+/** Sidebar Title **/
+#sidebar-title {
+    padding: 15px 0;
+    margin: 0;
+
+    color: white;
+    font-size: 26px;
+    text-align: center;
+}
+
+/** Conversation Buttons Container **/
+#conversation-buttons-container {
+    display: flex;
+    width: 100%;
+}
+
+#conversation-buttons-container button {
+    flex: 1;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    color: white;
+    font-size: 18px;
+}
+
+#conversation-buttons-container button:hover {
+    background-color: rgba(0, 0, 0, 0.375);
+}
+
+#conversation-buttons-container .active {
+    background-color: rgba(0, 0, 0, 0.375);
+}
+
+/** Conversation Listings **/
+#conversation-listings-container {
+    height: calc(100% - 100px); /* '- 100px' is the height being used above this element. */
+    overflow-y: auto;
+}
+
+/** Conversation Listing **/
+.conversation-listing {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    text-align: unset;
+}
+
+.conversation-listing:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.conversation-listing .icon {
+    display: inline-block;
+    margin: 0;
+    padding: 0 5px 0 0;
+
+    color: white;
+    font-size: 10px;
+    line-height: 50px;
+}
+
+.conversation-listing .username {
+    flex: 1;
+    display: inline-block;
+    margin: 0;
+    overflow: hidden;
+
+    color: var(--text-color);
+    font-size: 18px;
+    line-height: 50px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.online {
+    color: limegreen !important;
+}
+
+/** Sidebar Toggler **/
+#sidebar-toggler {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 50px;
+    max-width: 100%;
+    height: 50px;
+    padding: 0;
+    background-color: var(--bg-color);
+    border: none;
+    border-top-left-radius: 25px;
+    outline: none;
+    cursor: pointer;
+
+    color: var(--secondary-main-color);
+    font-size: 21px;
+    line-height: 50px;
+
+    transition: width 0.5s, color 0.5s;
+}
+
+#sidebar-toggler:hover {
+    width: 125px;
+
+    color: white;
+}
