@@ -1,46 +1,54 @@
 import { useState } from 'react'
-import { act } from 'react-dom/test-utils'
+import ConversationListing from './ConversationListing/ConversationListing'
 import './Sidebar.css'
 
-export default function Sidebar(props) {
+export default function Sidebar() {
     const [sidebarShown, setSidebarShown] = useState(true)
-    const [activeTab, setActiveTab] = useState(0)
+
+    const [conversations, setConversations] = 
+        useState([
+            {id: 0, type: 'User', user: {name: 'Friend', status: 'Online'}},
+            {id: 1, type: 'Group', name: 'A group'},
+            {id: 2, type: 'User', user: {name: 'Busy-Friend', status: 'Busy'}},
+            {id: 3, type: 'Group', name: 'Not so cool kids group'},
+            {id: 4, type: 'Group', name: 'Cool kids group'},
+            {id: 5, type: 'User', user: {name: 'Away-Friend', status: 'Away'}},
+            {id: 6, type: 'User', user: {name: 'Not-Online-Friend', status: 'Offline'}}])
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(undefined)
+
+    function getConversationListings()
+    {
+        if (error)
+            return <p id='conversation-listings-state'>{ error }</p>
+        else if (isLoading)
+            return <p id='conversation-listings-state'>Loading conversations...</p>
+        else if (conversations.length === 0)
+            return <p id='conversation-listings-state'>No conversations to show.</p>
+
+        return (
+            <div>
+                { conversations.map((conversation, index) => {
+                    return <ConversationListing conversation={ conversation } key={ index } />
+                })}
+            </div>
+        )
+    }
 
     function toggleSidebar()
     {
         setSidebarShown(!sidebarShown)
     }
 
-    if (props.loggedIn)
-        return (
-            <div id={ sidebarShown ? 'outer-sidebar-container' : 'closed-outer-sidebar-container'}>
-                <div id='sidebar-container'>
-                    <p id='sidebar-title'>Conversations</p>
-                    <div id='conversation-buttons-container'>
-                        <button className={ activeTab === 0 ? 'active' : '' } onClick={ () => setActiveTab(0) }>Friends</button>
-                        <button className={ activeTab === 1 ? 'active' : '' } onClick={ () => setActiveTab(1) }>Groups</button>
-                    </div>
-
-                    <div id='conversation-listings-container'>
-                        <div className={ activeTab === 0 ? '' : 'hidden' }>
-                            <button className='conversation-listing'>
-                                <i className='fas fa-circle icon online'></i>
-                                <p className='username'>Friend 1</p>
-                            </button>
-                        </div>
-                        <div className={ activeTab === 1 ? '' : 'hidden' }>
-                            <button className='conversation-listing'>
-                                <i class="fas fa-user-friends icon"></i>
-                                <p className='username'>Group 1</p>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div id='sidebar-toggler-container'>
-                    <button id='sidebar-toggler' onClick={ () => toggleSidebar() }><i className={ sidebarShown ? 'fas fa-caret-left icon' : 'fas fa-caret-right icon' }></i></button>
-                </div>
+    return (
+        <div id={ sidebarShown ? 'outer-sidebar-container' : 'closed-outer-sidebar-container'}>
+            <div id='sidebar-container'>
+                <p id='sidebar-title'>Conversations</p>
+                { getConversationListings() }
             </div>
-        )
-    else
-        return null
+            <div id='sidebar-toggler-container'>
+                <button id='sidebar-toggler' onClick={ () => toggleSidebar() }><i className={ sidebarShown ? 'fas fa-caret-left icon' : 'fas fa-caret-right icon' }></i></button>
+            </div>
+        </div>
+    )
 }

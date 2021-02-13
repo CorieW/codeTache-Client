@@ -1,0 +1,29 @@
+/** Message Container **/
+.message-container {
+    width: fit-content;
+    margin-bottom: 20px;
+
+    font-size: 18px;
+}
+
+/** Username **/
+.message-container .username {
+    display: inline-block;
+    padding-right: 10px;
+
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/** Time **/
+.message-container .time {
+    display: inline-block;
+    
+    font-size: 14px;
+    color: var(--contrast-hard-highlight-color);
+}
+
+/** Message **/
+.message-container .message {
+    padding-top: 5px;
+}

@@ -37,22 +37,3 @@
     height: 50px;
     width: 200px;
 }
-
-/** Login and Register Links **/
-#login-link, #register-link {
-    flex: 1;
-
-    color: var(--text-color);
-    font-size: 18px;
-    text-align: center;
-    line-height: 50px;
-    text-decoration: inherit;
-}
-
-#login-link {
-    margin: 0 5px 0 0;
-}
-
-#login-link:hover, #register-link:hover {
-    background-color: var(--soft-highlight-color);
-}

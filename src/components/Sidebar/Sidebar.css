@@ -1,10 +1,11 @@
-/** Sidebar Containers **/
+/** Outer Sidebar Container **/
 #outer-sidebar-container, #closed-outer-sidebar-container {
     position: fixed;
     top: 50px;
     bottom: 0;
     left: 0;
     z-index: 1;
+    overflow: hidden;
 
     transition: width 0.5s;
 }
@@ -17,15 +18,13 @@
     width: 50px;
 }
 
-
-
+/** Sidebar Inner Containers **/
 #sidebar-container {
     position: absolute;
     top: 0;
     bottom: 50px;
 
     background-color: var(--secondary-main-color);
-    border-bottom-right-radius: 15px;
     overflow: hidden;
 }
 
@@ -34,7 +33,7 @@
 }
 
 #sidebar-container {
-    width: 100%;
+    width: 250px;
 }
 
 #sidebar-container * {
@@ -44,8 +43,6 @@
 #closed-outer-sidebar-container #sidebar-container * {
     opacity: 0;
 }
-
-
 
 #sidebar-toggler-container {
     position: absolute;
@@ -95,49 +92,11 @@
     overflow-y: auto;
 }
 
-/** Conversation Listing **/
-.conversation-listing {
-    display: flex;
-    width: 100%;
-    height: 50px;
-    padding: 0 15px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
+#conversation-listings-state {
+    margin: 10px 0 0 0;
 
-    text-align: unset;
-}
-
-.conversation-listing:hover {
-    background-color: var(--soft-highlight-color);
-}
-
-.conversation-listing .icon {
-    display: inline-block;
-    margin: 0;
-    padding: 0 5px 0 0;
-
-    color: var(--text-color);
-    font-size: 10px;
-    line-height: 50px;
-}
-
-.conversation-listing .username {
-    flex: 1;
-    display: inline-block;
-    margin: 0;
-    overflow: hidden;
-
-    color: var(--text-color);
     font-size: 18px;
-    line-height: 50px;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-.online {
-    color: limegreen !important;
+    text-align: center;
 }
 
 /** Sidebar Toggler **/
