@@ -5,7 +5,7 @@ import Message from './Message/Message'
 
 export default function Conversation()
 {
-    const previousReadMessageID = 195
+    const previousReadMessageID = 7698
     const [messages, setMessages] = useState([
         {id: 0, sender: {username: 'Cool_kid123', status: 'Online'}, time: 'Time/Date', message: 'This is the message I sent.'},
         {id: 13, sender: {username: 'User3874', status: 'Online'}, time: 'Time/Date', message: 'This is another message I sent.'},
@@ -42,7 +42,7 @@ export default function Conversation()
 
     useEffect(() => {
         // Scroll to bottom of the messages container.
-        $('#messages-container').scrollTop($('#messages-container'))
+        $('#messages-container').scrollTop($('#messages-container')[0].scrollHeight)
 
         // However, if there are new messages, scroll to them.
         if ($('#unread').length !== 0) {

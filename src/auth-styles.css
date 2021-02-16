@@ -1,0 +1,90 @@
+/** Form Container **/
+.auth-form-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 300px;
+    padding: 30px 20px;
+    background-color: var(--contrast-soft-highlight-color);
+    border-radius: 5px;
+    box-shadow: rgb(15, 15, 15) 0px 0px 10px;
+}
+
+/** h1, label, a tags **/
+.auth-form-container h1 {
+    margin: 0;
+    
+    text-align: center;
+    color: var(--text-color);
+}
+
+.auth-label {
+    display: block;
+    margin: 10px 0 5px 10px;
+
+    color: var(--text-color);
+    font-size: 21px;
+}
+
+.auth-link {
+    margin-top: 5px;
+
+    color: var(--text-color);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/** Inputs **/
+.auth-input {
+    width: 100%;
+    padding: 5px;
+    background-color: var(--soft-highlight-color);
+    border: var(--hard-highlight-color) 2px solid;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+
+    font-size: 18px;
+}
+
+.auth-input:focus {
+    border: var(--primary-main-color) 2px solid;
+}
+
+/** Checkbox **/
+.checkbox {
+    display: inline-block;
+    margin: 20px 5px 0 0;
+
+    text-align: left;
+}
+
+.checkbox-text {
+    display: inline-block;
+
+    font-size: 14px;
+}
+
+/** Submit Button **/
+.auth-btn {
+    width: 100%;
+    padding: 5px;
+    margin: 25px 0 0;
+    background-color: var(--primary-main-color);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+
+    font-size: 21px;
+}
+
+/** Error Text **/
+.error-text {
+    margin-top: 10px;
+
+    color: red;
+    text-align: center;
+}

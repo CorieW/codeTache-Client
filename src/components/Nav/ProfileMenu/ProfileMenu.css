@@ -6,7 +6,7 @@
     z-index: 3;
 
     flex-direction: column;
-    width: 200px;
+    min-width: 200px;
     background-color: var(--primary-main-color);
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
@@ -17,7 +17,7 @@
 #profile-menu-toggle-button {
     width: 100%;
     height: 50px;
-    padding: 0;
+    padding: 0 10px;
     background-color: var(--soft-highlight-color);
     border: none;
     outline: none;
