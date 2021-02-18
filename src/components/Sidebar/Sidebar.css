@@ -1,21 +1,19 @@
 /** Outer Sidebar Container **/
 #outer-sidebar-container, #closed-outer-sidebar-container {
-    position: fixed;
-    top: 50px;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
+    position: relative;
+
+    height: calc(100vh - 50px);
     overflow: hidden;
 
-    transition: width 0.5s;
+    transition: max-width 0.5s;
 }
 
 #outer-sidebar-container {
-    width: 250px;
+    max-width: 250px;
 }
 
 #closed-outer-sidebar-container {
-    width: 50px;
+    max-width: 50px;
 }
 
 /** Sidebar Inner Containers **/
@@ -28,7 +26,7 @@
     overflow: hidden;
 }
 
-#sidebar-container *, #closed-sidebar-container * {
+#sidebar-container * {
     transition: opacity 0.5s;
 }
 
@@ -42,6 +40,7 @@
 
 #closed-outer-sidebar-container #sidebar-container * {
     opacity: 0;
+    pointer-events: none;
 }
 
 #sidebar-toggler-container {
@@ -64,27 +63,21 @@
     text-align: center;
 }
 
-/** Conversation Buttons Container **/
-#conversation-buttons-container {
-    display: flex;
+/** Conversation Search Input **/
+#conversation-search-input {
     width: 100%;
-}
+    padding: 5px 10px;
+    box-sizing: border-box;
 
-#conversation-buttons-container button {
-    flex: 1;
-    height: 35px;
-    background-color: transparent;
-    border: 3px solid var(--primary-main-color);
-    outline: none;
-    cursor: pointer;
-
-    color: white;
     font-size: 18px;
 }
 
-#conversation-buttons-container .active {
-    background-color: var(--primary-main-color);
+#conversation-search-input::placeholder {
+    color: var(--text-color);
+    font-style: italic;
 }
+
+#conversatu
 
 /** Conversation Listings **/
 #conversation-listings-container {

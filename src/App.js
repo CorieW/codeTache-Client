@@ -12,10 +12,10 @@ function App() {
 
   if (userData)
     return (
-      <div className="app">
+      <div id="app-container">
         <Nav />
-        <Sidebar />
         <div id='content-container'>
+          <Sidebar />
           <Router>
             <Switch>
               <Route path='/conversation' component={Conversation} />

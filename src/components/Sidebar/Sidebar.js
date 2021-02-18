@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import $ from 'jquery'
 import ConversationListing from './ConversationListing/ConversationListing'
 import './Sidebar.css'
 
@@ -13,9 +14,16 @@ export default function Sidebar() {
             {id: 3, type: 'Group', name: 'Not so cool kids group'},
             {id: 4, type: 'Group', name: 'Cool kids group'},
             {id: 5, type: 'User', user: {name: 'Away-Friend', status: 'Away'}},
-            {id: 6, type: 'User', user: {name: 'Not-Online-Friend', status: 'Offline'}}])
+            {id: 6, type: 'User', user: {name: 'Not-Online-Friend', status: 'Offline'}}
+        ])
+    const [searchTerm, setSearchTerm] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(undefined)
+
+    function changeSearchTerm(e)
+    {
+        setSearchTerm(e.target.value.toLowerCase())
+    }
 
     function getConversationListings()
     {
@@ -29,7 +37,10 @@ export default function Sidebar() {
         return (
             <div>
                 { conversations.map((conversation, index) => {
-                    return <ConversationListing conversation={ conversation } key={ index } />
+                    if (conversation.type === 'User' && conversation.user.name.toLowerCase().includes(searchTerm))
+                        return <ConversationListing conversation={ conversation } key={ index } />
+                    else if (conversation.type === 'Group' && conversation.name.toLowerCase().includes(searchTerm))
+                        return <ConversationListing conversation={ conversation } key={ index } />
                 })}
             </div>
         )
@@ -44,6 +55,7 @@ export default function Sidebar() {
         <div id={ sidebarShown ? 'outer-sidebar-container' : 'closed-outer-sidebar-container'}>
             <div id='sidebar-container'>
                 <p id='sidebar-title'>Conversations</p>
+                <input id='conversation-search-input' onChange={ changeSearchTerm } placeholder='Search for conversation...'/>
                 { getConversationListings() }
             </div>
             <div id='sidebar-toggler-container'>

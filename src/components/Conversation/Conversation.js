@@ -5,7 +5,7 @@ import Message from './Message/Message'
 
 export default function Conversation()
 {
-    const previousReadMessageID = 7698
+    const previousReadMessageID = 34
     const [messages, setMessages] = useState([
         {id: 0, sender: {username: 'Cool_kid123', status: 'Online'}, time: 'Time/Date', message: 'This is the message I sent.'},
         {id: 13, sender: {username: 'User3874', status: 'Online'}, time: 'Time/Date', message: 'This is another message I sent.'},

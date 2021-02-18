@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 20px 50px;
+    box-sizing: border-box;
 }
 
 #conversation-container * {
@@ -60,7 +62,6 @@
     background-color: var(--contrast-soft-highlight-color);
     border: none;
     border-radius: 5px;
-    outline: none;
     resize: none;
 
     font-size: 18px;

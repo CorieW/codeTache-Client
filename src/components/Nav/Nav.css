@@ -1,6 +1,6 @@
 /** Nav Container **/
 #nav-container {
-    position: fixed;
+    position: relative;
     top: 0;
     z-index: 2;
 
